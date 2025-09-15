@@ -28,4 +28,3 @@ In this system design exercise, I created a high-level architecture for the "Liv
 -	**Pagination:** Splits large datasets into pages for efficient API responses.
 -	**Idempotency:** Prevents duplicate orders when the same request is submitted multiple times
 
-- 
