@@ -2,7 +2,7 @@
 
 ### 1. Graph link
 # System Design Graph
-[Live Drop Architecture] (https://excalidraw.com/#json=7G9GWJ2Y-4kakcyrlfVig,xwbY1ak55_9zcIs4XnZr2Q)
+[Live Drop Architecture] (https://excalidraw.com/#json=12OdUzNbpoXPcybyKt0vT,jncEtN_9xr2ruKgtC1fRRA)
 
 ### 2. Explanation
 In this system design exercise, I created a high-level architecture for the "Live Drops" platform, which manages live product drops, user follows, and real-time notifications. The design ensures scalability, reliability, and fast response times: orders are processed asynchronously through a queue before reaching the notification service, while Redis caches hot data such as product availability and follow lists to reduce database load. Each service is loosely coupled, allowing independent scaling and maintenance. This approach prioritizes handling high traffic spikes, maintaining data consistency, and providing a smooth real-time experience for users.
