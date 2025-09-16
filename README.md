@@ -10,7 +10,7 @@ In this system design exercise, I created a high-level architecture for the "Liv
 ### 3. Components
 - **Clients:** Allow users to browse products/drops, follow creators, place orders, and receive notifications.
 - **API Gateway:** Single entry point for requests.
-- **Auth Service:** Manages user permissions.
+- **Auth:** Manages user permissions.
 - **Follows Service:** Stores follow relationships, uses Redis cache to handle celebrity creators efficiently.
 - **Products Service:** Manages product creation and browsing.
 - **Drops Service:** Handles scheduling and live drop management, ensures accurate stock counts.
