@@ -14,7 +14,7 @@ In this system design exercise, I created a high-level architecture for the "Liv
 - **Follows Service:** Stores follow relationships, uses Redis cache to handle celebrity creators efficiently.
 - **Products Service:** Manages product creation and browsing.
 - **Drops Service:** Handles scheduling and live drop management, ensures accurate stock counts.
-- **Orders Service:** Manages order placement with idempotency keys and prevents overselling using DB transactions and Redis atomic counters.
+- **Orders Service:** Manages order placement with idempotency keys and prevents overselling.
 - **Notification Service:** Sends real-time updates to users (drop started, low stock, order confirmed).
 - **Database:** Stores all persistent data (Users, Creators, Products, Drops, Orders, Follows, Notifications).
 - **Redis (Cache):** Speeds up frequently accessed data such as stock counts, product info, and follower lists.
