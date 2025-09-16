@@ -26,5 +26,5 @@ In this system design exercise, I created a high-level architecture for the "Liv
 -	**Monitoring:** Tracks system performance and alerts on failures or bottlenecks.
 -	**Security:** Ensures authentication, authorization, and encrypted communication.
 -	**Pagination:** Splits large datasets into pages for efficient API responses.
--	**Idempotency:** Prevents duplicate orders when the same request is submitted multiple times
+-	**Idempotency:** Prevents duplicate orders when the same request is submitted multiple times.
 
