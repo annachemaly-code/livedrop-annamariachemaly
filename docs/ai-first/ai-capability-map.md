@@ -1,4 +1,4 @@
-### AI Capability Map
+### 1) AI Capability Map
 
 | Capability | Intent (user) | Inputs (this sprint) | Risk 1–5 (tag) | p95 ms | Est. cost/action | Fallback | Selected |
 |---|---|---|---|---:|---:|---|:---:|
