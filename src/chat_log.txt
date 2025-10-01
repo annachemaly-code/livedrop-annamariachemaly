@@ -1,0 +1,30 @@
+[2025-10-01 15:18:38]
+Q: how long does seller verification ususallt take?
+A: 2-3 business days.
+Sources: Shoplite User Registration Process
+Confidence: High
+--------------------------------------------------
+[2025-10-01 15:19:09]
+Q: how can i register for an account in shoplite?
+A: To register for an account in Shoplite, buyers visit the registration page and provide their full name, email address, and a secure password.
+Sources: Shoplite User Registration Process, Shoplite Seller Account Setup
+Confidence: High
+--------------------------------------------------
+[2025-10-01 15:19:41]
+Q: who is the best football player in brazil?
+A: Sorry, I could not find this in the Shoplite documentation. Please contact support for more details.
+Sources: None
+Confidence: Low
+--------------------------------------------------
+[2025-10-01 15:20:39]
+Q: what payment methods are used in shoplite?
+A: Shoplite offers various secure methods of payment in order to finalize the purchases done within the shopping cart and check out processes.
+Sources: Shoplite Payment Methods, Shoplite Commission and Fees, Shoplite Checkout Process
+Confidence: High
+--------------------------------------------------
+[2025-10-01 15:20:52]
+Q: how can i do cake?
+A: Sorry, I could not find this in the Shoplite documentation. Please contact support for more details.
+Sources: None
+Confidence: Low
+--------------------------------------------------
