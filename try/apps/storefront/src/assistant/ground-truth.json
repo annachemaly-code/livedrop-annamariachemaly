@@ -1,0 +1,122 @@
+[
+  {
+    "qid": "Q01",
+    "category": "Returns",
+    "question": "What information is required to register a buyer account on Shoplite?",
+    "answer": "Users must provide their full name, email address, and a secure password, then verify their email within 24 hours."
+  },
+  {
+    "qid": "Q02",
+    "category": "Payments",
+    "question": "What payment methods are supported on Shoplite?",
+    "answer": "Users can pay using credit/debit cards, mobile wallets such as OMT, or cash on delivery."
+  },
+  {
+    "qid": "Q03",
+    "category": "Returns",
+    "question": "What types of products cannot be returned on Shoplite?",
+    "answer": "Non-returnable products include digital downloads, perishable goods, and personalized items."
+  },
+  {
+    "qid": "Q04",
+    "category": "Account",
+    "question": "How long does seller verification usually take?",
+    "answer": "Verification usually takes 2–3 business days."
+  },
+  {
+    "qid": "Q05",
+    "category": "Orders",
+    "question": "How can buyers track the status of their orders?",
+    "answer": "Buyers can track their orders using a unique tracking number via their account dashboard, email, or SMS notifications."
+  },
+  {
+    "qid": "Q06",
+    "category": "Security",
+    "question": "What security measures protect user accounts on Shoplite?",
+    "answer": "Accounts are protected by secure passwords, optional two-factor authentication, session timeouts, and encryption of sensitive data."
+  },
+  {
+    "qid": "Q07",
+    "category": "Promotions",
+    "question": "How are promotional codes applied during checkout?",
+    "answer": "Buyers enter the promo code in the designated field at checkout; the system validates it and applies discounts in real time."
+  },
+  {
+    "qid": "Q08",
+    "category": "Mobile",
+    "question": "Which mobile features allow buyers to interact with products directly?",
+    "answer": "Buyers can scan QR codes or barcodes to add products and use the camera to upload product images."
+  },
+  {
+    "qid": "Q09",
+    "category": "Support",
+    "question": "How does Shoplite support buyers and sellers through customer service?",
+    "answer": "Users can contact support via email, chat, or phone. Tickets are tracked until resolved, with high-priority issues addressed promptly. Sellers receive dedicated guidance for account setup, inventory, promotions, and disputes."
+  },
+  {
+    "qid": "Q10",
+    "category": "Search",
+    "question": "How can buyers use Shoplite to find products with specific ratings and reviews?",
+    "answer": "Buyers can filter search results by star ratings, review date, and verified purchase status. Product pages display aggregated ratings, and related recommendations help users find similar highly-rated items."
+  },
+  {
+    "qid": "Q11",
+    "category": "API",
+    "question": "How can developers integrate external applications with Shoplite for inventory and order management?",
+    "answer": "Developers can use Shoplite’s RESTful API with API keys to fetch product details, update inventory, manage orders, and receive real-time notifications via webhooks for stock changes or new orders."
+  },
+  {
+    "qid": "Q12",
+    "category": "Orders",
+    "question": "How does Shoplite handle inventory when multiple buyers attempt to purchase the same product at the same time?",
+    "answer": "When multiple buyers add the same product to their carts simultaneously, Shoplite temporarily reserves stock for each buyer. During checkout, inventory is decremented in real time. If stock runs out before payment, the affected buyer is immediately notified and the order is canceled."
+  },
+  {
+    "qid": "Q13",
+    "category": "Payments",
+    "question": "How does Shoplite ensure secure payment and privacy during checkout on mobile and desktop?",
+    "answer": "Payments are encrypted using SSL/TLS. Supported methods include credit/debit cards and mobile wallets. Mobile apps follow secure session protocols, while desktop users benefit from browser-based encryption and session management. Sensitive data is never stored in plain text."
+  },
+  {
+    "qid": "Q14",
+    "category": "Orders",
+    "question": "What steps should a buyer follow if an order is delayed or partially delivered?",
+    "answer": "Buyers should first check their tracking number on the dashboard or in email/SMS notifications; if the order is delayed or partially delivered, they can contact customer support via email, chat, or phone. Refunds or replacement options are provided according to the return policy."
+  },
+  {
+    "qid": "Q15",
+    "category": "Sellers",
+    "question": "How can sellers create bundled offers and track which products are selling fastest?",
+    "answer": "Sellers can create bundled offers by grouping products in the dashboard. Sales reports show which items in bundles sell fastest, and reviews help identify popular products for future bundles."
+  },
+  {
+    "qid": "Q16",
+    "category": "Wishlist",
+    "question": "How can buyers save their favorite products for later purchase?",
+    "answer": "Buyers can add products to a wishlist or mark them as favorites on the dashboard or mobile app, allowing easy access for future purchases."
+  },
+  {
+    "qid": "Q17",
+    "category": "Inventory",
+    "question": "How does Shoplite prevent overselling of products under normal conditions?",
+    "answer": "Shoplite continuously updates inventory whenever items are added to carts or purchased. This ensures stock levels remain accurate. Buyers are notified if an item becomes unavailable before checkout, preventing overselling during normal traffic and high-demand periods."
+  },
+  {
+    "qid": "Q18",
+    "category": "Sellers",
+    "question": "How does Shoplite calculate commissions for sellers?",
+    "answer": "Shoplite charges a commission for each completed sale, with rates varying by product category. Commissions are automatically deducted before the seller receives the remaining balance. Sellers can view rates and historical commission reports on their dashboard."
+  },
+  {
+    "qid": "Q19",
+    "category": "Sellers",
+    "question": "How does Shoplite handle order cancellations and refund adjustments for sellers?",
+    "answer": "When an order is canceled or refunded, Shoplite automatically adjusts the seller’s commission and payout amounts. Sellers are notified of these changes via email and on their dashboard, ensuring accurate final payments."
+  },
+  {
+    "qid": "Q20",
+    "category": "Analytics",
+    "question": "How does Shoplite use product reviews, ratings, and search data to improve recommendations and inventory decisions?",
+    "answer": "Shoplite analyzes customer reviews, ratings, and search behavior to identify trending products and preferences. This data informs product recommendations shown to buyers, helps prioritize restocking of popular items, and guides sellers in optimizing inventory levels. Aggregated insights also influence promotional campaigns and bundling strategies."
+  }
+]
