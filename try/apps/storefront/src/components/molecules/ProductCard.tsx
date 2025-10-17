@@ -27,7 +27,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         <img
           src={image}
           alt={title}
-          className="w-32 h-32 object-cover mb-2 rounded-md hover:scale-105 transition-transform"
+          className="w-full max-h-48 object-contain mb-2 rounded-md hover:scale-105 transition-transform"
+
         />
         <Heading level={3} className="mb-2 hover:text-gray-700">
           {title}

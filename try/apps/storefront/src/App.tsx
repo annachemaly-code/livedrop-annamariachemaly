@@ -4,18 +4,37 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { MainLayout } from "./components/templates/MainLayout";
 
+import LoginPage from "./pages/login"; // <-- import Login page
 import Catalog from "./pages/catalog";
 import ProductPage from "./pages/product";
 import CartPage from "./pages/cart";
 import CheckoutPage from "./pages/checkout";
 import OrderPage from "./pages/order-status";
+import AdminDashboard from "./pages/admindashboard";
 
 const App: React.FC = () => {
   return (
     <Router>
       <Routes>
+        {/* Default route now goes to login */}
         <Route
           path="/"
+          element={
+            <MainLayout>
+              <LoginPage />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <MainLayout>
+              <LoginPage />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/catalog"
           element={
             <MainLayout>
               <Catalog />
@@ -51,6 +70,14 @@ const App: React.FC = () => {
           element={
             <MainLayout>
               <OrderPage />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/admin"
+          element={
+            <MainLayout>
+              <AdminDashboard />
             </MainLayout>
           }
         />

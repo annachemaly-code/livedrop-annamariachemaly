@@ -1,0 +1,22 @@
+[
+  { "id": "p001", "title": "Wireless Headphones", "price": 59.99, "image": "/images/headphones.jpg", "tags": ["Electronics", "Audio"], "stockQty": 25 },
+  { "id": "p002", "title": "Smart Watch", "price": 129.99, "image": "/images/smartwatch.jpg", "tags": ["Electronics", "Wearable"], "stockQty": 15 },
+  { "id": "p003", "title": "Bluetooth Speaker", "price": 39.99, "image": "/images/speaker.jpg", "tags": ["Electronics", "Audio"], "stockQty": 30 },
+  { "id": "p004", "title": "Laptop Stand", "price": 29.99, "image": "/images/laptop-stand.jpg", "tags": ["Accessories", "Office"], "stockQty": 40 },
+  { "id": "p005", "title": "USB-C Hub", "price": 24.99, "image": "/images/usb-hub.jpg", "tags": ["Electronics", "Accessories"], "stockQty": 50 },
+  { "id": "p006", "title": "Noise-Canceling Earbuds", "price": 79.99, "image": "/images/earbuds.jpg", "tags": ["Electronics", "Audio"], "stockQty": 20 },
+  { "id": "p007", "title": "Fitness Tracker", "price": 49.99, "image": "/images/fitness-tracker.jpg", "tags": ["Electronics", "Wearable"], "stockQty": 35 },
+  { "id": "p008", "title": "Charger", "price": 19.99, "image": "/images/charger.jpg", "tags": ["Electronics", "Accessories"], "stockQty": 60 },
+  { "id": "p009", "title": "Gaming Mouse", "price": 34.99, "image": "/images/gaming-mouse.jpg", "tags": ["Electronics", "Gaming"], "stockQty": 25 },
+  { "id": "p010", "title": "Mechanical Keyboard", "price": 89.99, "image": "/images/keyboard.jpg", "tags": ["Electronics", "Gaming"], "stockQty": 20 },
+  { "id": "p011", "title": "4K Monitor", "price": 299.99, "image": "/images/monitor.jpg", "tags": ["Electronics", "Office"], "stockQty": 10 },
+  { "id": "p012", "title": "Webcam HD", "price": 49.99, "image": "/images/webcam.jpg", "tags": ["Electronics", "Office"], "stockQty": 30 },
+  { "id": "p013", "title": "External Hard Drive 1TB", "price": 69.99, "image": "/images/harddrive.jpg", "tags": ["Electronics", "Storage"], "stockQty": 25 },
+  { "id": "p014", "title": "Wireless Charger", "price": 29.99, "image": "/images/wireless-charger.jpg", "tags": ["Electronics", "Accessories"], "stockQty": 40 },
+  { "id": "p015", "title": "Smartphone Case", "price": 14.99, "image": "/images/phone-case.jpg", "tags": ["Electronics", "Accessories"], "stockQty": 70 },
+  { "id": "p016", "title": "Tablet Stand", "price": 22.99, "image": "/images/tablet-stand.jpg", "tags": ["Accessories", "Office"], "stockQty": 35 },
+  { "id": "p017", "title": "VR Headset", "price": 199.99, "image": "/images/vr-headset.jpg", "tags": ["Electronics", "Gaming"], "stockQty": 15 },
+  { "id": "p018", "title": "Action Camera", "price": 149.99, "image": "/images/action-camera.jpg", "tags": ["Electronics", "Camera"], "stockQty": 20 },
+  { "id": "p019", "title": "Drone with Camera", "price": 299.99, "image": "/images/drone.jpg", "tags": ["Electronics", "Camera"], "stockQty": 10 },
+  { "id": "p020", "title": "LED Desk Lamp", "price": 39.99, "image": "/images/desk-lamp.jpg", "tags": ["Accessories", "Office"], "stockQty": 45 }
+]

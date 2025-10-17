@@ -1,0 +1,25 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "check-disk-space": "^3.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "mongoose": "^8.19.1"
+  },
+  "devDependencies": {
+    "eventsource": "^4.0.0",
+    "get-port": "^7.1.0",
+    "jest": "^30.2.0",
+    "supertest": "^7.1.4"
+  }
+}

@@ -1,0 +1,25 @@
+### Create a new order
+POST http://localhost:5000/api/orders
+Content-Type: application/json
+
+{
+  "customerId": "68eb595d953669d3ebe3789f",
+  "items": [
+    {
+      "productId": "68eb5d1d953669d3ebe378b2",
+      "name": "Running Shoes",
+      "price": 80,
+      "quantity": 2
+    },
+    {
+      "productId": "68eb5d1d953669d3ebe378b1",
+      "name": "Smartphone Case",
+      "price": 15,
+      "quantity": 1
+    }
+  ],
+  "total": 175,
+  "status": "PENDING",
+  "carrier": "FedEx",
+  "estimatedDelivery": "2025-10-20T12:00:00Z"
+}

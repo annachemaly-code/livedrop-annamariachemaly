@@ -1,3 +1,5 @@
-# Ignore node_modules and build folders
-try/apps/storefront/node_modules/
-try/apps/storefront/dist/
+# Ignore node_modules
+node_modules/
+
+# Ignore environment variables
+.env

@@ -1,53 +1,139 @@
 // src/lib/api.ts
-import mockProducts from "../../public/mock-catalog.json";
 
+// Types
 export interface Product {
-  id: string;
-  title: string;
+  _id: string;
+  name: string;
   price: number;
-  image: string;
+  imageUrl: string;
   tags: string[];
-  stockQty: number;
+  stock: number;
+  description?: string;
+  category?: string;
 }
 
-export interface OrderStatus {
-  id: number;
-  status: "Placed" | "Packed" | "Shipped" | "Delivered";
+export interface OrderItem {
+  productId: string;
+  quantity: number;
+}
+
+export interface Order {
+  _id: string;
+  customerId: string;
+  items: OrderItem[];
+  total: number;
+  status: "PENDING" | "PROCESSING" | "SHIPPED" | "DELIVERED";
   carrier?: string;
-  eta?: string;
+  estimatedDelivery?: string;
+  createdAt: string;
+  updatedAt: string;
 }
 
-let nextOrderId = 1000;
-const mockStatuses: Record<number, OrderStatus> = {};
+export interface Customer {
+  _id: string;
+  name: string;
+  email: string;
+  phone?: string;
+  address?: string;
+  createdAt?: string;
+}
 
-// List all products
-export const listProducts = (): Promise<Product[]> =>
-  new Promise((resolve) => setTimeout(() => resolve(mockProducts), 300));
+// API Base
+const API_BASE = "http://localhost:5000/api";
 
-// Get single product by id
-export const getProduct = (id: string): Promise<Product | undefined> =>
-  new Promise((resolve) =>
-    setTimeout(() => resolve(mockProducts.find((p) => p.id === id)), 300)
-  );
-
-// Get order status
-export const getOrderStatus = (id: number): Promise<OrderStatus> => {
-  if (!mockStatuses[id]) {
-    const statuses: OrderStatus["status"][] = ["Placed", "Packed", "Shipped", "Delivered"];
-    const randomIndex = Math.floor(Math.random() * statuses.length);
-    const status: OrderStatus = { id, status: statuses[randomIndex] };
-    if (status.status === "Shipped" || status.status === "Delivered") {
-      status.carrier = "UPS";
-      status.eta = new Date(Date.now() + 3 * 24 * 60 * 60 * 1000).toLocaleDateString();
-    }
-    mockStatuses[id] = status;
-  }
-  return new Promise((resolve) => setTimeout(() => resolve(mockStatuses[id]), 500));
+// Products API
+export const listProducts = async (): Promise<Product[]> => {
+  const res = await fetch(`${API_BASE}/products`);
+  if (!res.ok) throw new Error("Failed to fetch products");
+  return res.json();
 };
 
-// Place order
-export const placeOrder = (cart: { productId: string; quantity: number }[]): Promise<{ orderId: number }> => {
-  const orderId = nextOrderId++;
-  mockStatuses[orderId] = { id: orderId, status: "Placed" };
-  return new Promise((resolve) => setTimeout(() => resolve({ orderId }), 500));
+export const getProduct = async (id: string): Promise<Product | null> => {
+  const res = await fetch(`${API_BASE}/products/${id}`);
+  if (!res.ok) return null;
+  return res.json();
+};
+
+// Orders API
+
+// Place a new order
+export const placeOrder = async (
+  items: { productId: string; quantity: number }[],
+  customerId: string
+): Promise<Order> => {
+  const res = await fetch(`${API_BASE}/orders`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ items, customerId }),
+  });
+
+  if (!res.ok) {
+    const errorText = await res.text();
+    throw new Error(`Failed to place order: ${errorText}`);
+  }
+
+  return res.json();
+};
+
+// Fetch a single order by ID
+export const getOrder = async (orderId: string): Promise<Order> => {
+  const res = await fetch(`${API_BASE}/orders/${orderId}`);
+  if (!res.ok) {
+    const errorText = await res.text();
+    throw new Error(`Order not found: ${errorText}`);
+  }
+  return res.json();
+};
+
+/**
+ * Live order status via SSE
+ * Returns an EventSource connected to backend SSE endpoint
+ */
+export const getOrderStatus = (orderId: string): EventSource => {
+  const sseUrl = `${API_BASE}/orders/${orderId}/stream`;
+  return new EventSource(sseUrl);
+};
+
+// Customers API
+export const getCustomerByEmail = async (email: string): Promise<Customer | null> => {
+  try {
+    const res = await fetch(`${API_BASE}/customers?email=${encodeURIComponent(email)}`);
+    if (!res.ok) return null;
+    const data = await res.json();
+    return data; // single object from backend
+  } catch (err) {
+    console.error("Error fetching customer by email:", err);
+    return null;
+  }
+};
+
+// Analytics API
+export const getDashboardMetrics = async () => {
+  const res = await fetch(`${API_BASE}/analytics/dashboard-metrics`);
+  if (!res.ok) throw new Error("Failed to fetch dashboard metrics");
+  return res.json();
+};
+
+export const getDailyRevenue = async (from: string, to: string) => {
+  const res = await fetch(`${API_BASE}/analytics/daily-revenue?from=${from}&to=${to}`);
+  if (!res.ok) throw new Error("Failed to fetch daily revenue");
+  return res.json();
+};
+
+export const getPerformanceMetrics = async () => {
+  const res = await fetch(`${API_BASE}/analytics/performance`);
+  if (!res.ok) throw new Error("Failed to fetch performance metrics");
+  return res.json();
+};
+
+export const getAssistantAnalytics = async () => {
+  const res = await fetch(`${API_BASE}/analytics/assistant`);
+  if (!res.ok) throw new Error("Failed to fetch assistant analytics");
+  return res.json();
+};
+
+export const getSystemHealth = async () => {
+  const res = await fetch(`${API_BASE}/analytics/system-health`);
+  if (!res.ok) throw new Error("Failed to fetch system health");
+  return res.json();
 };

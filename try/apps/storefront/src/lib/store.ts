@@ -1,4 +1,3 @@
-// src/lib/store.ts
 import { create } from "zustand";
 
 export interface CartItem {
@@ -9,8 +8,17 @@ export interface CartItem {
   qty: number;
 }
 
+export interface User {
+  _id: string;   // MongoDB user ID
+  name: string;
+  email: string;
+}
+
 interface CartState {
   items: CartItem[];
+  user: User | null;               //  add user
+  setUser: (user: User) => void;   //  function to set logged-in user
+  clearUser: () => void;           //  logout function
   addItem: (item: Omit<CartItem, "qty">, qty?: number) => void;
   removeItem: (id: string) => void;
   increment: (id: string) => void;
@@ -36,17 +44,16 @@ const saveCart = (items: CartItem[]) => {
 
 export const useCartStore = create<CartState>((set, get) => ({
   items: loadCart(),
+  user: null,  // initially no user
+
+  setUser: (user: User) => set({ user }),
+  clearUser: () => set({ user: null }),
 
   addItem: (item, qty = 1) => {
     const items = [...get().items];
     const index = items.findIndex((i) => i.id === item.id);
-
-    if (index >= 0) {
-      items[index].qty += qty;
-    } else {
-      items.push({ ...item, qty });
-    }
-
+    if (index >= 0) items[index].qty += qty;
+    else items.push({ ...item, qty });
     set({ items });
     saveCart(items);
   },
@@ -78,6 +85,5 @@ export const useCartStore = create<CartState>((set, get) => ({
     localStorage.removeItem("cart");
   },
 
-  total: () =>
-    get().items.reduce((acc, i) => acc + i.price * i.qty, 0),
+  total: () => get().items.reduce((acc, i) => acc + i.price * i.qty, 0),
 }));

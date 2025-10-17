@@ -1,4 +1,3 @@
-// src/pages/catalog.tsx
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCartStore } from "../lib/store";
@@ -7,14 +6,16 @@ import { Heading } from "../components/atoms/Heading";
 import { SearchBar } from "../components/molecules/SearchBar";
 import { SortFilterControls } from "../components/molecules/SortFilterControls";
 import { ProductCard } from "../components/molecules/ProductCard";
+import { listProducts } from "../lib/api";
 
 interface Product {
-  id: string;
-  title: string;
+  _id: string;
+  name: string;
   price: number;
-  image: string;
+  imageUrl: string;
   tags: string[];
-  stockQty?: number;
+  category: string;
+  stock?: number;
 }
 
 const Catalog: React.FC = () => {
@@ -28,45 +29,43 @@ const Catalog: React.FC = () => {
   const addItem = useCartStore((state) => state.addItem);
 
   useEffect(() => {
-    fetch("/mock-catalog.json")
-      .then((res) => res.json())
-      .then((data: Product[]) => setProducts(data))
-      .catch((err) => console.error(err));
+    listProducts()
+      .then((data) => setProducts(data as Product[])) 
+      .catch((err) => console.error("Failed to load products:", err));
   }, []);
 
+  // Filtered products by search and selected category
   const filteredProducts = products
-    .filter((p) => p.title.toLowerCase().includes(search.toLowerCase()))
-    .filter((p) => (filterTag ? p.tags.includes(filterTag) : true))
+    .filter((p) => p.name.toLowerCase().includes(search.toLowerCase()))
+    .filter((p) => (filterTag ? p.category === filterTag : true))
     .sort((a, b) => (sortOrder === "asc" ? a.price - b.price : b.price - a.price));
 
-  const allTags = Array.from(new Set(products.flatMap((p) => p.tags)));
+  // Get all categories from products
+  const allCategories = Array.from(new Set(products.map((p) => p.category)));
 
   const handleAddToCart = (product: Product) => {
     addItem(
       {
-        id: product.id,
-        title: product.title,
+        id: product._id,
+        title: product.name,
         price: product.price,
-        image: product.image,
+        image: `/products/${product._id}.jpg`,
       },
       1
     );
 
-    // Show toast message
-    setToastMessage(`${product.title} added to cart!`);
-    setTimeout(() => setToastMessage(""), 2000); // hide after 2 seconds
+    setToastMessage(`${product.name} added to cart!`);
+    setTimeout(() => setToastMessage(""), 2000);
   };
 
   return (
     <div className="p-6 relative">
-      {/* Toast message */}
       {toastMessage && (
         <div className="fixed top-4 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-6 py-3 rounded shadow-lg z-50">
           {toastMessage}
         </div>
       )}
 
-      {/* Header */}
       <div className="flex flex-wrap justify-between items-center mb-6">
         <Heading level={1}>Product Catalog</Heading>
         <Button
@@ -77,7 +76,6 @@ const Catalog: React.FC = () => {
         </Button>
       </div>
 
-      {/* Search, Sort, Filter */}
       <div className="flex flex-wrap gap-4 justify-center mb-8">
         <SearchBar query={search} setQuery={setSearch} />
         <SortFilterControls
@@ -85,20 +83,19 @@ const Catalog: React.FC = () => {
           onSortChange={setSortOrder}
           filterTag={filterTag}
           onFilterChange={setFilterTag}
-          allTags={allTags}
+          allTags={allCategories} 
         />
       </div>
 
-      {/* Product Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {filteredProducts.map((product) => (
           <ProductCard
-            key={product.id}
-            id={product.id}
-            title={product.title}
+            key={product._id}
+            id={product._id}
+            title={product.name}
             price={product.price}
-            image={product.image}
-            stockQty={product.stockQty}
+            image={`/products/${product._id}.jpg`}
+            stockQty={product.stock}
             onAddToCart={() => handleAddToCart(product)}
           />
         ))}

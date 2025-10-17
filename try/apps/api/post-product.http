@@ -1,0 +1,12 @@
+POST http://localhost:5000/api/products
+Content-Type: application/json
+
+{
+  "name": "Gaming Chair",
+  "description": "Ergonomic chair with RGB lights",
+  "price": 250,
+  "category": "Furniture",
+  "tags": ["gaming", "chair", "office"],
+  "imageUrl": "https://example.com/images/gamingchair.jpg",
+  "stock": 20
+}

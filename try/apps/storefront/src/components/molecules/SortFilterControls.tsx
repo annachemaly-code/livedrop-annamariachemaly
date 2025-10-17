@@ -1,12 +1,11 @@
-// src/components/molecules/SortFilterControls.tsx
 import React from "react";
 
 interface SortFilterProps {
   sortOrder: "asc" | "desc";
   onSortChange: (value: "asc" | "desc") => void;
-  filterTag: string;
+  filterTag: string; // still used for the selected category
   onFilterChange: (value: string) => void;
-  allTags: string[];
+  allTags: string[]; // actually categories now
 }
 
 export const SortFilterControls: React.FC<SortFilterProps> = ({
@@ -32,10 +31,10 @@ export const SortFilterControls: React.FC<SortFilterProps> = ({
         onChange={(e) => onFilterChange(e.target.value)}
         className="border rounded-md px-4 py-2"
       >
-        <option value="">All Tags</option>
-        {allTags.map((tag) => (
-          <option key={tag} value={tag}>
-            {tag}
+        <option value="">All Categories</option> {/* updated label */}
+        {allTags.map((category) => (
+          <option key={category} value={category}>
+            {category}
           </option>
         ))}
       </select>
