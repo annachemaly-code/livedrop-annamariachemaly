@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "https://livedrop-annamariachemaly.onrender.com/api/$1"
+    }
+  ]
+}
