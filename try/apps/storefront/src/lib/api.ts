@@ -39,7 +39,13 @@ export interface Customer {
 }
 
 // API Base
-const API_BASE = "http://localhost:5000/api";
+// const API_BASE = "http://localhost:5000/api";
+// API Base
+const API_BASE =
+  process.env.REACT_APP_API_BASE ||
+  (window.location.hostname === "localhost"
+    ? "http://localhost:5000/api"
+    : "https://livedrop-annamariachemaly.onrender.com/api");
 
 // Products API
 export const listProducts = async (): Promise<Product[]> => {
