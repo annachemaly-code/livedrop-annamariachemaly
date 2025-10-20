@@ -17,25 +17,35 @@ This guide covers how to deploy and run the Storefront project, including backen
 ```
 
 ## 2. Backend Setup
+Deploy to Render.com
+- Connect to GitHub repository
+- Add the environmnet variable (MONGODB_URI)
+- Deploy
+- Verify the backend is running:
+https://livedrop-annamariachemaly.onrender.com
+
+- Verify the customers and products:
+
+https://livedrop-annamariachemaly.onrender.com/api/customers
+
+https://livedrop-annamariachemaly.onrender.com/api/products
 
 ## 3. Frontend Setup
+Deploy to Vercel.com
+- Connect to GitHub repository
+- Configure build settings (pnpm install, pnpm build)
+- Add environment variables:
+  REACT_APP_API_BASE = https://your-backend.onrender.com/api
+- Deploy 
+- Verify the frontend is running:
+https://livedrop-annamariachemaly.vercel.app
+ 
+(Enter: anna.chemaly@example.com to login)
 
 ## 4. LLM Setup
-Add this new endpoint to your Week 3 Colab notebook:
-
-```python
-# ADD THIS NEW ENDPOINT (don't touch your existing RAG endpoints)
-@app.route('/generate', methods=['POST'])
-def generate():
-    """Simple text completion - no RAG, no retrieval"""
-    prompt = request.json.get('prompt')
-    max_tokens = request.json.get('max_tokens', 500)
-    
-    # Use the same model you already loaded
-    response = model.generate(prompt, max_tokens=max_tokens)
-    
-    return jsonify({"text": response})
-```
+Add this new endpoint to Week 3 Colab notebook:
+@app.route('/generate', methods=['POST']) in cell 7
+add a test in cell 9
 
 
 ## 5. Environment variables
